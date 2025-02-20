@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="5ee35211-9d0b-48ee-b003-84b1ab43325a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
@@ -54,7 +57,7 @@
       <option name="presentableId" value="Default" />
       <updated>1740066612878</updated>
       <workItem from="1740066614677" duration="29000" />
-      <workItem from="1740066675293" duration="348000" />
+      <workItem from="1740066675293" duration="813000" />
     </task>
     <servers />
   </component>
