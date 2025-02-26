@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{ee93ee80-69de-4bbe-8abb-c9279baaf3be}">
+		<property name="assetPath">
+			<value>Lynyrd Skynyrd - Free Bird.mp3</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>256.24799999999999</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{77ec5c1a-1f62-4f34-b66c-bb3e66e81140}</destination>
+		</relationship>
+	</object>
+</objects>
