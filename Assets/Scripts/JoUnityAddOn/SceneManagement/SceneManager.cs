@@ -1,50 +1,39 @@
-﻿using UnityEngine.SceneManagement;
-using UnitySceneManager = UnityEngine.SceneManagement.SceneManager;
+﻿using UnitySceneManager = UnityEngine.SceneManagement.SceneManager;
 
 namespace JoUnityAddOn.SceneManagement
 {
-    public class SceneManager
+    public class SceneManager : UnitySceneManager
     {
-        public static void LoadScene(string sceneName)
-        {
-            UnitySceneManager.LoadScene(sceneName);
-        }
-        public static void LoadScene(int sceneBuildIndex)
-        {
-            UnitySceneManager.LoadScene(sceneBuildIndex);
-        }
-        
+        /// <summary>
+        /// Loads the next scene in the build settings.
+        /// </summary>
         public static void LoadNextScene()
         {
             int nextSceneBuildIndex = GetActiveScene().buildIndex + 1;
             
-            if (nextSceneBuildIndex >= UnitySceneManager.sceneCountInBuildSettings) nextSceneBuildIndex = 0;
+            if (nextSceneBuildIndex >= sceneCountInBuildSettings) nextSceneBuildIndex = 0;
             
-            UnitySceneManager.LoadScene(nextSceneBuildIndex);
+            LoadScene(nextSceneBuildIndex);
         }
         
+        /// <summary>
+        /// Loads the previous scene in the build settings.
+        /// </summary>
         public static void LoadPreviousScene()
         {
             int previousSceneBuildIndex = GetActiveScene().buildIndex - 1;
             
-            if (previousSceneBuildIndex < 0) previousSceneBuildIndex = UnitySceneManager.sceneCountInBuildSettings-1;
+            if (previousSceneBuildIndex < 0) previousSceneBuildIndex = sceneCountInBuildSettings-1;
             
-            UnitySceneManager.LoadScene(previousSceneBuildIndex);
+            LoadScene(previousSceneBuildIndex);
         }
 
-        public static Scene GetActiveScene()
+        /// <summary>
+        /// Reload the current active Scene.
+        /// </summary>
+        public static void ReloadScene()
         {
-            return UnitySceneManager.GetActiveScene();
-        }
-
-        public static int sceneCountInBuildSettings
-        {
-            get { return UnitySceneManager.sceneCountInBuildSettings; }
-        }
-
-        public static int sceneCount
-        {
-            get { return UnitySceneManager.sceneCount; }
+            LoadScene(GetActiveScene().buildIndex);
         }
     }
 }

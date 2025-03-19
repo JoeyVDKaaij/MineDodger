@@ -1,8 +1,16 @@
 using UnityEngine;
 using JoUnityAddOn.SceneManagement;
+using JoUnityAddOn.Input;
+using UnityEditor;
+
 
 public class UIHandlerScript : MonoBehaviour
 {
+    private void Start()
+    {
+        Mouse.UnlockMouse();
+    }
+
     public void PlayGame()
     {
         SceneManager.LoadPreviousScene();
@@ -10,7 +18,11 @@ public class UIHandlerScript : MonoBehaviour
 
     public void QuitGame()
     {
-        Application.Quit();
         Debug.Log("Quit game");
+        #if UNITY_EDITOR
+            EditorApplication.isPlaying = false;
+        #else
+            Application.Quit();
+        #endif
     }
 }

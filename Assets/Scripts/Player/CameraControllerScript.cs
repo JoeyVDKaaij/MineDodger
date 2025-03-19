@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
+using JoUnityAddOn.Input;
 
 public class CameraControllerScript : MonoBehaviour
 {
@@ -11,16 +11,13 @@ public class CameraControllerScript : MonoBehaviour
     private float _rotationX;
     private float _rotationY;
     
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        Mouse.LockMouse();
 
         _orientation = transform.parent;
     }
 
-    // Update is called once per frame
     void Update()
     {
         float mouseX = Input.GetAxisRaw("Mouse X") * mouseSensitivityX * Time.deltaTime;

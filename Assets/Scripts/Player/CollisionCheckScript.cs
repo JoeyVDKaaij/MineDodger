@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CollisionCheckScript : MonoBehaviour
@@ -9,8 +7,16 @@ public class CollisionCheckScript : MonoBehaviour
         switch (other.gameObject.tag)
         {
             case "Door":
-                other.gameObject.GetComponent<DoorScript>().WinPuzzle();
+                if (other.gameObject.GetComponent<DoorScript>() != null)
+                    other.gameObject.GetComponent<DoorScript>().WinPuzzle();
+                else
+                    Debug.LogError("No DoorScript found. Please add DoorScript to your door object.");
                 break;
+        }
+
+        if (other.gameObject.layer == 3)
+        {
+            other.gameObject.GetComponent<TileScript>().ShowCounter();
         }
     }
 }

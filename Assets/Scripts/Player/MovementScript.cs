@@ -4,63 +4,85 @@ using UnityEngine.PlayerLoop;
 
 public class MovementScript : MonoBehaviour
 {
-    public float movementSpeed = 7;
+    #region Variables
+    
+    [Header("Movement Settings")]
+    [SerializeField, Tooltip("Set the movement speed")]
+    private float movementSpeed = 7;
+    [SerializeField, Tooltip("Set the drag when the player is standing on the ground.")]
+    private float groundDrag = 5;
 
-    public float jumpForce = 12;
-    public float jumpCooldown = 0.25f;
-    public float airMultiplier = 0.4f;
+    [Header("Jumping Settings")]
+    [SerializeField, Tooltip("Set the movement speed")]
+    private float jumpForce = 12;
+    [SerializeField, Tooltip("Set the cooldown when the player can jump again")]
+    private float jumpCooldown = 0.25f;
+    [SerializeField, Tooltip("Set the movement speed multiplier when the player is in the air.")]
+    private float airMultiplier = 0.4f;
+    [SerializeField, Tooltip("Set the movement speed multiplier when the player is in the air.")]
+    private KeyCode jumpKey = KeyCode.Space;
+    
+    [Header("Technical Settings")]
+    [SerializeField, Tooltip("Set the transform of the camera that the movement script is comparing to.")]
+    private Transform cameraOrientation;
+    [SerializeField, Tooltip("Set the height of the player.")]
+    private float playerHeight;
+    [SerializeField, Tooltip("Set the layermask of the ground.")]
+    private LayerMask whatIsGround;
+    
+    private bool _grounded;
+    private float _horizontalInput;
+    private float _verticalInput;
+    private Rigidbody _rb;
+    private Vector3 _moveDirection;
     private bool _readyToJump = true;
-
-    public KeyCode jumpKey = KeyCode.Space;
     
-    public Transform orientation;
-
-    public float groundDrag = 5;
+    #endregion
     
-    public float playerHeight;
-    public LayerMask whatIsGround;
-    private bool grounded;
+    #region Unity Methods
     
-    private float horizontalInput;
-    private float verticalInput;
-    private Rigidbody rb;
-    private Vector3 moveDirection;
-    
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
-        rb.freezeRotation = true;
-        orientation = transform.GetChild(0);
+        _rb = GetComponent<Rigidbody>();
+        _rb.freezeRotation = true;
+        
+        if (cameraOrientation == null)
+            cameraOrientation = transform.GetChild(0);
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
-        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
-        Debug.Log(grounded);
+        _grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
         
         UserInput();
         
         SpeedControl();
 
-        if (grounded)
-            rb.linearDamping = groundDrag;
+        if (_grounded)
+            _rb.linearDamping = groundDrag;
         else
-            rb.linearDamping = 0;
+            _rb.linearDamping = 0;
     }
-
+    
     private void FixedUpdate()
     {
         MovePlayer();
     }
+    
+    #endregion
 
+    #region Movement Methods
+    
+    /// <summary>
+    /// Get the user input using the Input.GetAxis() function
+    /// Makes the player jump if the jump button is pressed
+    /// </summary>
     private void UserInput()
     {
-        horizontalInput = Input.GetAxis("Horizontal");
-        verticalInput = Input.GetAxis("Vertical");
+        _horizontalInput = Input.GetAxis("Horizontal");
+        _verticalInput = Input.GetAxis("Vertical");
 
-        if (Input.GetKey(jumpKey) && _readyToJump && grounded)
+        if (Input.GetKey(jumpKey) && _readyToJump && _grounded)
         {
             _readyToJump = false;
             
@@ -70,36 +92,52 @@ public class MovementScript : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Move the player
+    /// </summary>
     private void MovePlayer()
     {
-        moveDirection = transform.forward * verticalInput + transform.right * horizontalInput;
+        _moveDirection = transform.forward * _verticalInput + transform.right * _horizontalInput;
         
-        if (grounded)
-            rb.AddForce(moveDirection.normalized * movementSpeed * 10f, ForceMode.Force);
+        if (_grounded)
+            _rb.AddForce(_moveDirection.normalized * movementSpeed * 10f, ForceMode.Force);
         else
-            rb.AddForce(moveDirection.normalized * movementSpeed * 10f * airMultiplier, ForceMode.Force);
+            _rb.AddForce(_moveDirection.normalized * movementSpeed * 10f * airMultiplier, ForceMode.Force);
     }
 
+    /// <summary>
+    /// Ensures the player moves at the set movement speed (Ignores if the player is moving slower than the set movement speed).
+    /// </summary>
     private void SpeedControl()
     {
-        Vector3 flatVel = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z);
+        Vector3 flatVel = new Vector3(_rb.linearVelocity.x, 0f, _rb.linearVelocity.z);
 
         if (flatVel.magnitude > movementSpeed)
         {
             Vector3 limitedVel = flatVel.normalized * movementSpeed;
-            rb.linearVelocity = new Vector3(limitedVel.x, rb.linearVelocity.y, limitedVel.z);
+            _rb.linearVelocity = new Vector3(limitedVel.x, _rb.linearVelocity.y, limitedVel.z);
         }
     }
 
+    /// <summary>
+    /// Makes the object jump
+    /// </summary>
     private void Jump()
     {
-        rb.linearVelocity = new Vector3(rb.linearVelocity.x, 0, rb.linearVelocity.z);
+        // velocity changed to linearVelocity due to the changes between older versions of Unity and Unity 6
+        _rb.linearVelocity = new Vector3(_rb.linearVelocity.x, 0, _rb.linearVelocity.z);
         
-        rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
+        _rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
     }
 
+    /// <summary>
+    /// Informs the script that the player can jump again
+    /// </summary>
     private void ResetJump()
     {
         _readyToJump = true;
     }
+    
+    #endregion
+    
 }
