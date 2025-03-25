@@ -13,7 +13,7 @@ public class UIHandlerScript : MonoBehaviour
 
     public void PlayGame()
     {
-        SceneManager.LoadPreviousScene();
+        SceneManager.LoadNextScene();
     }
 
     public void QuitGame()
