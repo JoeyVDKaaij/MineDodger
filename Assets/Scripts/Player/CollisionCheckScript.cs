@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class CollisionCheckScript : MonoBehaviour
 {
+    [SerializeField, Tooltip("Set the GameObject that has the death animation.")]
+    private GameObject deathAnimation;
+    
     private void OnCollisionEnter(Collision other)
     {
         switch (other.gameObject.tag)

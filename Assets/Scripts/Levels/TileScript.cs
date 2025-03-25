@@ -8,8 +8,14 @@ public class TileScript : MonoBehaviour
     [Header("Tile Settings")]
     [SerializeField, Tooltip("Set if the tile contains a bomb.")]
     private bool containsBomb = false;
-    [SerializeField, Tooltip("Set if the tile contains a bomb.")]
+    [SerializeField, Tooltip("Set the counter text component.")]
     private TextMeshProUGUI counter;
+    
+    [Header("Counter Settings")]
+    [SerializeField, Tooltip("Set if the tile should show a counter at the start of the scene.")]
+    private bool showCounter;
+    [SerializeField, Tooltip("Set if the counter should show a ? instead of a number.")]
+    private bool questionMarkTile = false;
     
     private TileScript[] _surroundingTiles = new TileScript[8];
     private int _surroundingBombsCount = 0;
@@ -25,17 +31,26 @@ public class TileScript : MonoBehaviour
             {
                 _surroundingBombsCount = CheckTiles();
                 
-                if (_surroundingBombsCount > 0)
+                if (_surroundingBombsCount > 0 && !questionMarkTile)
                 {
-                    counter.GetComponent<TextMeshProUGUI>().text = $"{_surroundingBombsCount}";
+                    counter.GetComponent<TextMeshProUGUI>().SetText($"{_surroundingBombsCount}");
+                }
+                else if (questionMarkTile)
+                {
+                    counter.GetComponent<TextMeshProUGUI>().SetText("?");
                 }
                 else
                 {
-                    counter.GetComponent<TextMeshProUGUI>().text = "";
+                    counter.GetComponent<TextMeshProUGUI>().SetText("");
                 }
             }
             
             counter.gameObject.SetActive(false);
+
+            if (showCounter)
+            {
+                ShowCounter();
+            }
         }
         else if (!containsBomb)
             Debug.LogWarning("Counter is missing! Please set counter in the inspector.", gameObject);
@@ -71,13 +86,13 @@ public class TileScript : MonoBehaviour
             return;
         }
         
-        if (!counter.gameObject.activeInHierarchy && _surroundingBombsCount > 0)
+        if (!counter.gameObject.activeInHierarchy && (_surroundingBombsCount > 0 || questionMarkTile))
         {
             counter.gameObject.SetActive(true);
             return;
         }
         
-        if (_surroundingBombsCount == 0)
+        if (_surroundingBombsCount == 0 && !questionMarkTile)
         {
             foreach (TileScript tile in _surroundingTiles)
             {
@@ -88,7 +103,10 @@ public class TileScript : MonoBehaviour
 
     private void ActivateBomb()
     {
-        SceneManager.ReloadScene();
+        if (DeathAnimationScript.instance != null)
+            DeathAnimationScript.instance.PlayDeathAnimation(transform.position);
+        else
+            SceneManager.ReloadScene();
     }
         
     public bool ContainsBomb
