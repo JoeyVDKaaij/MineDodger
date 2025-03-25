@@ -9,3 +9,13 @@ When a version is available you can download that version in the releases sectio
 
 <h2>Encounter bugs or issues?</h2>
 Please report any bugs or issues by either contacting one of the contributors or create an issue on the GitHub repository page.
+
+<h2>Credits</h2>
+Game Produced by: Joey van der Kaaij <br>
+Programming: Joey van der Kaaij <br>
+Lightning: Joey van der Kaaij <br>
+Background music: DeusLower (https://pixabay.com/music/ambient-dark-fantasy-ambient-dungeon-synthpiano-verse-248214/)<br>
+Door Model: Gridness Studio (https://assetstore.unity.com/packages/3d/environments/dungeons/lite-dungeon-pack-low-poly-3d-art-by-gridness-242692)<br>
+Floor/Wall/Pillars/Torches models: JustCreate (https://assetstore.unity.com/packages/3d/environments/dungeons/low-poly-dungeons-lite-177937)<br>
+
+(The credits will be updated as the development goes on)
