@@ -7,11 +7,15 @@ public class TileScriptEditor : Editor
 {
     SerializedProperty containsBombProp;
     SerializedProperty counterProp;
+    SerializedProperty showCounterProp;
+    SerializedProperty questionMarkTileProp;
 
     private void OnEnable()
     {
         containsBombProp = serializedObject.FindProperty("containsBomb");
         counterProp = serializedObject.FindProperty("counter");
+        showCounterProp = serializedObject.FindProperty("showCounter");
+        questionMarkTileProp = serializedObject.FindProperty("questionMarkTile");
     }
     
     public override void OnInspectorGUI()
@@ -27,9 +31,16 @@ public class TileScriptEditor : Editor
         {
             GUI.enabled = false;
             EditorGUILayout.PropertyField(counterProp);
+            EditorGUILayout.PropertyField(showCounterProp);
+            EditorGUILayout.PropertyField(questionMarkTileProp);
             GUI.enabled = true;
         }
-        else EditorGUILayout.PropertyField(counterProp);
+        else
+        {
+            EditorGUILayout.PropertyField(counterProp);
+            EditorGUILayout.PropertyField(showCounterProp);
+            EditorGUILayout.PropertyField(questionMarkTileProp);
+        }
         
         serializedObject.ApplyModifiedProperties();
     }
