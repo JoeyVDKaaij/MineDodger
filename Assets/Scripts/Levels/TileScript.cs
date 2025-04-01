@@ -19,6 +19,7 @@ public class TileScript : MonoBehaviour
     
     private TileScript[] _surroundingTiles = new TileScript[8];
     private int _surroundingBombsCount = 0;
+    private bool counterShown = false;
 
     // Setup the tile
     private void Start()
@@ -59,7 +60,7 @@ public class TileScript : MonoBehaviour
     // Checks how many bombs are around the tile
     private int CheckTiles()
     {
-        Collider[] colliders = Physics.OverlapBox(transform.position, Vector3.one * 1.5f, Quaternion.identity, LayerMask.GetMask("Ground"));
+        Collider[] colliders = Physics.OverlapBox(transform.position, Vector3.one * 2f, Quaternion.identity, LayerMask.GetMask("Ground"));
         
         int bombCount = 0;
 
@@ -80,6 +81,11 @@ public class TileScript : MonoBehaviour
 
     public void ShowCounter()
     {
+        if (counterShown)
+            return;
+            
+        counterShown = true;
+        
         if (containsBomb)
         {
             ActivateBomb();
@@ -96,7 +102,8 @@ public class TileScript : MonoBehaviour
         {
             foreach (TileScript tile in _surroundingTiles)
             {
-                tile.ShowCounter();
+                if (tile != null)
+                    tile.ShowCounter();
             }
         }
     }

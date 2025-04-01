@@ -282,6 +282,14 @@ PrefabInstance:
       propertyPath: showCounter
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5761378637452378830, guid: f1f2a888bae117947a56d83e86f7de20, type: 3}
+      propertyPath: showCounter
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5761378637452378830, guid: f1f2a888bae117947a56d83e86f7de20, type: 3}
+      propertyPath: questionMarkTile
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7958809193753417397, guid: f1f2a888bae117947a56d83e86f7de20, type: 3}
       propertyPath: m_Camera
       value: 
@@ -417,6 +425,14 @@ PrefabInstance:
     - target: {fileID: 4959360618378695143, guid: f1f2a888bae117947a56d83e86f7de20, type: 3}
       propertyPath: showCounter
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5761378637452378830, guid: f1f2a888bae117947a56d83e86f7de20, type: 3}
+      propertyPath: showCounter
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5761378637452378830, guid: f1f2a888bae117947a56d83e86f7de20, type: 3}
+      propertyPath: questionMarkTile
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7958809193753417397, guid: f1f2a888bae117947a56d83e86f7de20, type: 3}
       propertyPath: m_Camera
@@ -556,6 +572,10 @@ PrefabInstance:
     - target: {fileID: 4959360618378695143, guid: f1f2a888bae117947a56d83e86f7de20, type: 3}
       propertyPath: questionMarkTile
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5761378637452378830, guid: f1f2a888bae117947a56d83e86f7de20, type: 3}
+      propertyPath: containsBomb
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7958809193753417397, guid: f1f2a888bae117947a56d83e86f7de20, type: 3}
       propertyPath: m_Camera
@@ -1298,6 +1318,10 @@ PrefabInstance:
       propertyPath: containsBomb
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5761378637452378830, guid: f1f2a888bae117947a56d83e86f7de20, type: 3}
+      propertyPath: containsBomb
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7958809193753417397, guid: f1f2a888bae117947a56d83e86f7de20, type: 3}
       propertyPath: m_Camera
       value: 
@@ -1520,7 +1544,7 @@ MonoBehaviour:
       Data2: 1180445739
       Data3: -1518849403
       Data4: -2076071126
-    Path: event:/Test
+    Path: event:/Background Music
   Event: 
   EventPlayTrigger: 0
   EventStopTrigger: 2
@@ -1604,6 +1628,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4959360618378695143, guid: f1f2a888bae117947a56d83e86f7de20, type: 3}
+      propertyPath: questionMarkTile
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5761378637452378830, guid: f1f2a888bae117947a56d83e86f7de20, type: 3}
       propertyPath: questionMarkTile
       value: 1
       objectReference: {fileID: 0}
@@ -3321,6 +3349,10 @@ PrefabInstance:
       propertyPath: showCounter
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5761378637452378830, guid: f1f2a888bae117947a56d83e86f7de20, type: 3}
+      propertyPath: showCounter
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7958809193753417397, guid: f1f2a888bae117947a56d83e86f7de20, type: 3}
       propertyPath: m_Camera
       value: 
@@ -3387,6 +3419,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4959360618378695143, guid: f1f2a888bae117947a56d83e86f7de20, type: 3}
+      propertyPath: questionMarkTile
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5761378637452378830, guid: f1f2a888bae117947a56d83e86f7de20, type: 3}
       propertyPath: questionMarkTile
       value: 1
       objectReference: {fileID: 0}
@@ -4935,6 +4971,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4959360618378695143, guid: f1f2a888bae117947a56d83e86f7de20, type: 3}
+      propertyPath: questionMarkTile
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5761378637452378830, guid: f1f2a888bae117947a56d83e86f7de20, type: 3}
       propertyPath: questionMarkTile
       value: 1
       objectReference: {fileID: 0}

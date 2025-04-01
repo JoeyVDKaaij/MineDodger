@@ -1237,7 +1237,7 @@ MonoBehaviour:
       Data2: 1180445739
       Data3: -1518849403
       Data4: -2076071126
-    Path: event:/Test
+    Path: event:/Background Music
   Event: 
   EventPlayTrigger: 1
   EventStopTrigger: 2
@@ -2281,7 +2281,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &736794435
 MonoBehaviour:
   m_ObjectHideFlags: 0

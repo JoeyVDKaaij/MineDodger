@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{02b68c33-0cd7-4fb8-9920-7e7592a9c74e}">
+		<property name="assetPath">
+			<value>17216__meatball4u__countdown.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>22.0499992</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>3.9996371882086166</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{77ec5c1a-1f62-4f34-b66c-bb3e66e81140}</destination>
+		</relationship>
+	</object>
+</objects>

@@ -1732,7 +1732,7 @@ MonoBehaviour:
       Data2: 1180445739
       Data3: -1518849403
       Data4: -2076071126
-    Path: event:/Test
+    Path: event:/Background Music
   Event: 
   EventPlayTrigger: 0
   EventStopTrigger: 2

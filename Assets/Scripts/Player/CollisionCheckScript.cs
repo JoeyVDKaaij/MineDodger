@@ -19,7 +19,9 @@ public class CollisionCheckScript : MonoBehaviour
 
         if (other.gameObject.layer == 3)
         {
-            other.gameObject.GetComponent<TileScript>().ShowCounter();
+            TileScript tileScript = other.gameObject.GetComponent<TileScript>();
+            if (tileScript != null)
+                tileScript.ShowCounter();
         }
     }
 }
