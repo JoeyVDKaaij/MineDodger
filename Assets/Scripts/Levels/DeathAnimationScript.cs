@@ -10,6 +10,10 @@ public class DeathAnimationScript : MonoBehaviour
     private Animator _animator;
 
     private bool _deadAnimationPlaying = false;
+
+    [Header("Debug Settings")]
+    [SerializeField, Tooltip("Start the Death Gameplay type. Use this to check the death state of the game.")]
+    private bool startDeathGameplayType = false;
     
     void Start()
     {
@@ -33,6 +37,14 @@ public class DeathAnimationScript : MonoBehaviour
         else if (_animator.GetCurrentAnimatorStateInfo(0).IsName("Death Animation"))
         {
             _deadAnimationPlaying = true;
+        }
+        
+        if (GameManager.instance != null)
+        {
+            if (startDeathGameplayType)
+                GameManager.instance.gameplayType = GameplayTypes.Death;
+            else
+                GameManager.instance.gameplayType = GameplayTypes.Moving;
         }
     }
 

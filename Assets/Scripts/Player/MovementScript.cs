@@ -52,16 +52,19 @@ public class MovementScript : MonoBehaviour
     
     void Update()
     {
-        _grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
-        
-        UserInput();
-        
-        SpeedControl();
+        if (GameManager.instance.gameplayType == GameplayTypes.Moving)
+        {
+            _grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
 
-        if (_grounded)
-            _rb.linearDamping = groundDrag;
-        else
-            _rb.linearDamping = 0;
+            UserInput();
+
+            SpeedControl();
+
+            if (_grounded)
+                _rb.linearDamping = groundDrag;
+            else
+                _rb.linearDamping = 0;
+        }
     }
     
     private void FixedUpdate()
