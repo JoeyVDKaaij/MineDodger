@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{cff2b0a3-c790-4450-954d-c838dcd1deae}">
+		<property name="name">
+			<value>Music Magnets</value>
+		</property>
+		<relationship name="folder">
+			<destination>{7f09c2f3-75c0-43d5-b6c1-064ce853d209}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{e88cf1a2-73c6-4db9-80d6-2a831186b49c}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{e88cf1a2-73c6-4db9-80d6-2a831186b49c}">
+		<property name="parameterType">
+			<value>2</value>
+		</property>
+		<property name="maximum">
+			<value>4</value>
+		</property>
+		<property name="enumerationLabels">
+			<value>None</value>
+			<value>Magnet 1</value>
+			<value>Magnet 2</value>
+			<value>Magnet 3</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>
