@@ -33,7 +33,7 @@
 			<destination>{3cd77a3d-4d32-4faf-9ddf-98e166c05e65}</destination>
 		</relationship>
 		<relationship name="banks">
-			<destination>{f32fc69f-e2b6-45aa-a114-cc9832103ea9}</destination>
+			<destination>{328fa5a2-51e8-4145-bac9-fc603d8e82ea}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixer" id="{4cf1812f-836d-4d73-bd1a-8e6c2d31d166}">
@@ -47,6 +47,9 @@
 		</relationship>
 	</object>
 	<object class="MixerInput" id="{4aceff56-f97b-415d-992d-99beacc8c4e9}">
+		<relationship name="masters">
+			<destination>{a87584ea-4a79-42e5-88d6-7c4c05167ed5}</destination>
+		</relationship>
 		<relationship name="effectChain">
 			<destination>{d05a9887-13f2-4de4-82ee-cd7a989167f6}</destination>
 		</relationship>
@@ -54,7 +57,7 @@
 			<destination>{4d43b1b9-db2f-4fc0-84df-a7b5d183ffd4}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{12c324b9-edae-41e9-bd4e-20a9d9f98c6a}</destination>
+			<destination>{fb80d511-a706-4242-adb1-3d065673804d}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{3960c068-47e2-47e8-80aa-67bea629b359}" />

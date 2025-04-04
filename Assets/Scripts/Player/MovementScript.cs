@@ -43,6 +43,7 @@ public class MovementScript : MonoBehaviour
     
     void Start()
     {
+        Debug.Log(GameManager.instance != null);
         _rb = GetComponent<Rigidbody>();
         _rb.freezeRotation = true;
         
@@ -52,7 +53,7 @@ public class MovementScript : MonoBehaviour
     
     void Update()
     {
-        if (GameManager.instance.gameplayType == GameplayTypes.Moving)
+        if (GameManager.instance != null && GameManager.instance.gameplayType == GameplayTypes.Moving)
         {
             _grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
 

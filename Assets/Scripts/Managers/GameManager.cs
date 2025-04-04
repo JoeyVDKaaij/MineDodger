@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -7,29 +6,36 @@ public class GameManager : MonoBehaviour
     
     public static GameManager instance { get; private set; }
 
-    private void OnEnable()
+    private void InstantiateInstance()
     {
         if (instance == null)
         {
             instance = this;
             
-            if (transform.parent != null)
-                DontDestroyOnLoad(transform.parent.gameObject);
-            else
-                DontDestroyOnLoad(this);
+            DontDestroyOnLoad(gameObject);
         }
-        else Destroy(gameObject);
+        else if (instance != this) Destroy(gameObject);
     }
 
-    private void OnDisable()
+    private void Start()
     {
-        instance = null;
+        InstantiateInstance();
     }
 
-    private void OnDestroy()
+    private void OnEnable()
     {
-        instance = null;
+        InstantiateInstance();
     }
+
+    // private void OnDisable()
+    // {
+    //     instance = null;
+    // }
+    //
+    // private void OnDestroy()
+    // {
+    //     instance = null;
+    // }
     
     #endregion
     

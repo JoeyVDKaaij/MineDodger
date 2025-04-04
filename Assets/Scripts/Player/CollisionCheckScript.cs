@@ -7,7 +7,7 @@ public class CollisionCheckScript : MonoBehaviour
     
     private void OnCollisionEnter(Collision other)
     {
-        if (GameManager.instance.gameplayType == GameplayTypes.Moving)
+        if (GameManager.instance != null && GameManager.instance.gameplayType == GameplayTypes.Moving)
         {
             switch (other.gameObject.tag)
             {

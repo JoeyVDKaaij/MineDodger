@@ -20,7 +20,7 @@ public class CameraControllerScript : MonoBehaviour
 
     void Update()
     {
-        if (GameManager.instance.gameplayType == GameplayTypes.Moving)
+        if (GameManager.instance != null && GameManager.instance.gameplayType == GameplayTypes.Moving)
         {
             float mouseX = Input.GetAxisRaw("Mouse X") * mouseSensitivityX * Time.deltaTime;
             float mouseY = Input.GetAxisRaw("Mouse Y") * mouseSensitivityY * Time.deltaTime;
