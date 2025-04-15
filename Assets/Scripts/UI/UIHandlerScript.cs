@@ -17,6 +17,11 @@ public class UIHandlerScript : MonoBehaviour
         SceneManager.LoadNextScene();
     }
 
+    public void ActivateScene(int index = 0)
+    {
+        SceneManager.LoadScene(index);
+    }
+    
     public void QuitGame()
     {
         Debug.Log("Quit game");
