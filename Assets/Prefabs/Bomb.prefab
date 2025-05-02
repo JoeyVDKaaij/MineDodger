@@ -64,13 +64,17 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -5754084199372789682, guid: 0810a56c3295f1f4caee1e5c384b0d27, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 70948873267775455, guid: a75965cbc9ae42c47a3169e20ddbe2b8, type: 3}
     - target: {fileID: 919132149155446097, guid: 0810a56c3295f1f4caee1e5c384b0d27, type: 3}
       propertyPath: m_Name
       value: Bomb
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 0810a56c3295f1f4caee1e5c384b0d27, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -106,4 +110,4 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 1
   m_CookingOptions: 30
-  m_Mesh: {fileID: 70948873267775455, guid: 0810a56c3295f1f4caee1e5c384b0d27, type: 3}
+  m_Mesh: {fileID: 70948873267775455, guid: a75965cbc9ae42c47a3169e20ddbe2b8, type: 3}

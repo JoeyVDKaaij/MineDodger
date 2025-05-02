@@ -5706,6 +5706,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5830dc245a8fcb4db02cbc57622ea80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uiElementsToDisable: []
 --- !u!4 &732915799
 Transform:
   m_ObjectHideFlags: 0

@@ -6,6 +6,9 @@ using UnityEditor;
 
 public class UIHandlerScript : MonoBehaviour
 {
+    [SerializeField, Tooltip("Set the ui elements that will be disabled when the player does not have the ability to move.")]
+    private UnityEngine.UI.Selectable[] uiElementsToDisable;
+    
     private void Start()
     {
         Mouse.UnlockMouse();

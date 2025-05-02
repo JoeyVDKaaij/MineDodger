@@ -649,6 +649,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5830dc245a8fcb4db02cbc57622ea80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uiElementsToDisable:
+  - {fileID: 2919436701826962577}
+  - {fileID: 4326092542207077037}
 --- !u!1 &6087891625549926714
 GameObject:
   m_ObjectHideFlags: 0
