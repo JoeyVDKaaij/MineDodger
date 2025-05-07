@@ -6,13 +6,15 @@ using UnityEditor;
 public class TileScriptEditor : Editor
 {
     SerializedProperty containsBombProp;
+    SerializedProperty deathAnimationOffSetProp;
     SerializedProperty counterProp;
     SerializedProperty showCounterProp;
     SerializedProperty questionMarkTileProp;
-
+    
     private void OnEnable()
     {
         containsBombProp = serializedObject.FindProperty("containsBomb");
+        deathAnimationOffSetProp = serializedObject.FindProperty("deathAnimationOffSet");
         counterProp = serializedObject.FindProperty("counter");
         showCounterProp = serializedObject.FindProperty("showCounter");
         questionMarkTileProp = serializedObject.FindProperty("questionMarkTile");
@@ -27,6 +29,8 @@ public class TileScriptEditor : Editor
 
         // Draw 'number' normally
         EditorGUILayout.PropertyField(containsBombProp);
+        if (containsBombProp.boolValue)
+            EditorGUILayout.PropertyField(deathAnimationOffSetProp);
         if (containsBombProp.boolValue)
         {
             GUI.enabled = false;

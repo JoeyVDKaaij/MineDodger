@@ -2,12 +2,16 @@ using System.Linq;
 using TMPro;
 using UnityEngine;
 using JoUnityAddOn.SceneManagement;
+using UnityEngine.Tilemaps;
+using UnityEngine.UI;
 
 public class TileScript : MonoBehaviour
 {
     [Header("Tile Settings")]
     [SerializeField, Tooltip("Set if the tile contains a bomb.")]
     private bool containsBomb = false;
+    [SerializeField, Tooltip("Set the offset of the death animation.")]
+    private Vector3 deathAnimationOffSet = Vector3.zero;
     [SerializeField, Tooltip("Set the counter text component.")]
     private TextMeshProUGUI counter;
     
@@ -111,7 +115,7 @@ public class TileScript : MonoBehaviour
     private void ActivateBomb()
     {
         if (DeathAnimationScript.instance != null)
-            DeathAnimationScript.instance.PlayDeathAnimation(transform.position);
+            DeathAnimationScript.instance.PlayDeathAnimation(transform.parent.position + deathAnimationOffSet);
         else
             SceneManager.ReloadScene();
     }
