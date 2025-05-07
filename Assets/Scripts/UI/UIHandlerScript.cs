@@ -68,4 +68,12 @@ public class UIHandlerScript : MonoBehaviour
             levelSelect.SetActive(!levelSelect.activeSelf);
         }
     }
+
+    public void ResetGameplayType()
+    {
+        if (GameManager.instance != null)
+        {
+            GameManager.instance.gameplayType = GameplayTypes.Moving;
+        }
+    }
 }
