@@ -13,25 +13,33 @@ public class CameraControllerScript : MonoBehaviour
     
     void Start()
     {
-        Mouse.LockMouse();
-
         _orientation = transform.parent;
+        _rotationX = _orientation.rotation.eulerAngles.x;
+        _rotationY = _orientation.rotation.eulerAngles.y;
     }
 
     void Update()
     {
-        if (GameManager.instance != null && GameManager.instance.gameplayType == GameplayTypes.Moving)
+        if (GameManager.instance != null)
         {
-            float mouseX = Input.GetAxisRaw("Mouse X") * mouseSensitivityX * Time.deltaTime;
-            float mouseY = Input.GetAxisRaw("Mouse Y") * mouseSensitivityY * Time.deltaTime;
+            if (GameManager.instance.gameplayType == GameplayTypes.Moving)
+            {
+                Mouse.LockMouse();
+                float mouseX = Input.GetAxisRaw("Mouse X") * mouseSensitivityX * Time.deltaTime;
+                float mouseY = Input.GetAxisRaw("Mouse Y") * mouseSensitivityY * Time.deltaTime;
 
-            _rotationY += mouseX;
+                _rotationY += mouseX;
 
-            _rotationX -= mouseY;
-            _rotationX = Mathf.Clamp(_rotationX, -90f, 90f);
+                _rotationX -= mouseY;
+                _rotationX = Mathf.Clamp(_rotationX, -90f, 90f);
 
-            transform.rotation = Quaternion.Euler(_rotationX, _rotationY, 0);
-            _orientation.rotation = Quaternion.Euler(0f, _rotationY, 0f);
+                transform.rotation = Quaternion.Euler(_rotationX, _rotationY, 0);
+                _orientation.rotation = Quaternion.Euler(0f, _rotationY, 0f);
+            }
+            else
+            {
+                Mouse.UnlockMouse();
+            }
         }
     }
 }

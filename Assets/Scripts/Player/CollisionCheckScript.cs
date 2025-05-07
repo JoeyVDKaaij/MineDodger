@@ -1,10 +1,16 @@
+using System;
 using UnityEngine;
 
 public class CollisionCheckScript : MonoBehaviour
 {
     [SerializeField, Tooltip("Set the GameObject that has the death animation.")]
     private GameObject deathAnimation;
-    
+
+    private void Start()
+    {
+        
+    }
+
     private void OnCollisionEnter(Collision other)
     {
         if (GameManager.instance != null && GameManager.instance.gameplayType == GameplayTypes.Moving)
