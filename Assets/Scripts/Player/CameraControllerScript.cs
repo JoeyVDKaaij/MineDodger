@@ -16,6 +16,8 @@ public class CameraControllerScript : MonoBehaviour
         Mouse.LockMouse();
 
         _orientation = transform.parent;
+        _rotationX = _orientation.rotation.eulerAngles.x;
+        _rotationY = _orientation.rotation.eulerAngles.y;
     }
 
     void Update()
