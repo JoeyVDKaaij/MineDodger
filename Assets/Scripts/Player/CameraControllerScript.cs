@@ -3,7 +3,6 @@ using JoUnityAddOn.Input;
 
 public class CameraControllerScript : MonoBehaviour
 {
-    
     public float mouseSensitivityX = 1f;
     public float mouseSensitivityY = 1f;
     
@@ -16,6 +15,12 @@ public class CameraControllerScript : MonoBehaviour
         _orientation = transform.parent;
         _rotationX = _orientation.rotation.eulerAngles.x;
         _rotationY = _orientation.rotation.eulerAngles.y;
+        
+        if (OptionsManager.instance != null)
+        {
+            mouseSensitivityX = OptionsManager.instance.mouseSensitivity;
+            mouseSensitivityY = OptionsManager.instance.mouseSensitivity;
+        }
     }
 
     void Update()

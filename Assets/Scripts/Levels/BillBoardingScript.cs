@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class BillBoardingScript : MonoBehaviour
@@ -21,7 +20,7 @@ public class BillBoardingScript : MonoBehaviour
             
             float rad = Mathf.Atan2(deltaZ, deltaX);
             
-            transform.rotation = Quaternion.Euler(0, 0, rad * (180 / Mathf.PI));
+            transform.localRotation = Quaternion.Euler(0, 0, rad * (180 / Mathf.PI) + 90);
         }
     }
 }
