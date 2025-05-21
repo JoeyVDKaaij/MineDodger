@@ -5,9 +5,9 @@
     Death
 }
 
-public enum Resolution
+public enum VolumeType
 {
-    r640x480,
-    r1920x1080,
-    r2560x1440
+    Main,
+    Music,
+    SFX
 }

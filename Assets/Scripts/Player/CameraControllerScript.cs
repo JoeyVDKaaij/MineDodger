@@ -30,8 +30,8 @@ public class CameraControllerScript : MonoBehaviour
             if (GameManager.instance.gameplayType == GameplayTypes.Moving)
             {
                 Mouse.LockMouse();
-                float mouseX = Input.GetAxisRaw("Mouse X") * mouseSensitivityX * Time.deltaTime;
-                float mouseY = Input.GetAxisRaw("Mouse Y") * mouseSensitivityY * Time.deltaTime;
+                float mouseX = Input.GetAxisRaw("Mouse X") * mouseSensitivityX * Time.deltaTime * 3;
+                float mouseY = Input.GetAxisRaw("Mouse Y") * mouseSensitivityY * Time.deltaTime * 3;
 
                 _rotationY += mouseX;
 

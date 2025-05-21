@@ -20,7 +20,7 @@ public class BillBoardingScript : MonoBehaviour
             
             float rad = Mathf.Atan2(deltaZ, deltaX);
             
-            transform.localRotation = Quaternion.Euler(0, 0, rad * (180 / Mathf.PI) + 90);
+            transform.localRotation = Quaternion.Euler(0, 0, rad * (180 / Mathf.PI));
         }
     }
 }
