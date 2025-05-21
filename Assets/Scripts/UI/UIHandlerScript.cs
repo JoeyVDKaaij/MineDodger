@@ -76,4 +76,12 @@ public class UIHandlerScript : MonoBehaviour
             GameManager.instance.gameplayType = GameplayTypes.Moving;
         }
     }
+
+    public void SaveSettings()
+    {
+        if (OptionsManager.instance != null)
+        {
+            OptionsManager.instance.SaveSettings();
+        }
+    }
 }

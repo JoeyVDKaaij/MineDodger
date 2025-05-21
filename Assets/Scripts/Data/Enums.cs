@@ -4,3 +4,10 @@
     Paused,
     Death
 }
+
+public enum VolumeType
+{
+    Main,
+    Music,
+    SFX
+}

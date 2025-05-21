@@ -1,9 +1,6 @@
-using System.Linq;
 using TMPro;
 using UnityEngine;
 using JoUnityAddOn.SceneManagement;
-using UnityEngine.Tilemaps;
-using UnityEngine.UI;
 
 public class TileScript : MonoBehaviour
 {
@@ -50,12 +47,11 @@ public class TileScript : MonoBehaviour
                 }
             }
             
-            counter.gameObject.SetActive(false);
-
             if (showCounter)
             {
                 ShowCounter();
             }
+            else counter.gameObject.SetActive(false);
         }
         else if (!containsBomb)
             Debug.LogWarning("Counter is missing! Please set counter in the inspector.", gameObject);

@@ -32,32 +32,32 @@ public class SoundManager : MonoBehaviour
     
     #endregion
 
-    private VCA _mainVolumeVCA;
-    private Bus _musicBus;
-    private Bus _sFXBus;
+    private VCA vcaControllerMain;
+    private VCA vcaControllerMusic;
+    private VCA vcaControllerSound;
 
     private void Start()
     {
-        _mainVolumeVCA = RuntimeManager.GetVCA("vca:/Main Volume");
-        _musicBus = RuntimeManager.GetBus("bus:/Music");
-        _sFXBus = RuntimeManager.GetBus("bus:/SFX");
+        vcaControllerMain = RuntimeManager.GetVCA("vca:/Master");
+        vcaControllerMusic = RuntimeManager.GetVCA("vca:/Music");
+        vcaControllerSound = RuntimeManager.GetVCA("vca:/SFX");
     }
 
     public void SetMainVolume(float volume)
     {
         Math.Clamp(volume, 0.0f, 1.0f);
-        _mainVolumeVCA.setVolume(volume);
+        vcaControllerMain.setVolume(volume);
     }
 
     public void SetMusicVolume(float volume)
     {
         Math.Clamp(volume, 0.0f, 1.0f);
-        _musicBus.setVolume(volume);
+        vcaControllerMusic.setVolume(volume);
     }
 
     public void SetSFXVolume(float volume)
     {
         Math.Clamp(volume, 0.0f, 1.0f);
-        _sFXBus.setVolume(volume);
+        vcaControllerSound.setVolume(volume);
     }
 }
