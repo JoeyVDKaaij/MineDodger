@@ -43,7 +43,6 @@ public class MovementScript : MonoBehaviour
     
     void Start()
     {
-        Debug.Log(GameManager.instance != null);
         _rb = GetComponent<Rigidbody>();
         _rb.freezeRotation = true;
         
@@ -70,7 +69,10 @@ public class MovementScript : MonoBehaviour
     
     private void FixedUpdate()
     {
-        MovePlayer();
+        if (GameManager.instance != null && GameManager.instance.gameplayType == GameplayTypes.Moving)
+        {
+            MovePlayer();
+        }
     }
     
     #endregion

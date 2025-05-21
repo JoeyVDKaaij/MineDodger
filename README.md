@@ -17,5 +17,6 @@ Lightning: Joey van der Kaaij <br>
 Background music: DeusLower (https://pixabay.com/music/ambient-dark-fantasy-ambient-dungeon-synthpiano-verse-248214/)<br>
 Door Model: Gridness Studio (https://assetstore.unity.com/packages/3d/environments/dungeons/lite-dungeon-pack-low-poly-3d-art-by-gridness-242692)<br>
 Floor/Wall/Pillars/Torches models: JustCreate (https://assetstore.unity.com/packages/3d/environments/dungeons/low-poly-dungeons-lite-177937)<br>
+UI: Flora (https://assetstore.unity.com/packages/2d/gem-game-full-pack-128px-256px-full-version-276847)
 
 (The credits will be updated as the development goes on)
