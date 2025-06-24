@@ -39,15 +39,12 @@ public class OptionsManager : MonoBehaviour
             {
                 levelBeaten = data.levelBeaten;
                 mouseSensitivity = data.mouseSensitivity;
-                fullscreen = data.fullscreen;
-                resolution = data.resolution.ToUnityResolution();
-                mainVolume = data.mainVolume;
-                musicVolume = data.musicVolume;
-                soundVolume = data.soundVolume;
-
-                vcaControllerMain.setVolume(mainVolume / 100);
-                vcaControllerMusic.setVolume(mainVolume / 100);
-                vcaControllerSound.setVolume(mainVolume / 100);
+                
+                ApplyGraphics(data.resolution.ToUnityResolution(), data.fullscreen);
+                
+                ApplyVolume(data.mainVolume, VolumeType.Main);
+                ApplyVolume(data.musicVolume, VolumeType.Music);
+                ApplyVolume(data.soundVolume, VolumeType.SFX);
             }
             else
             {
@@ -62,13 +59,15 @@ public class OptionsManager : MonoBehaviour
         }
     }
 
-    public void ApplySettings()
+    public void ApplyAllSettings(int pMouseSensitivity, Resolution pResolution, bool pFullscreenfloat, float pMainVolume, float pMusicVolume, float pSoundVolume)
     {
-        Screen.fullScreen = fullscreen;
-
-        vcaControllerMain.setVolume(mainVolume / 100);
-        vcaControllerMusic.setVolume(mainVolume / 100);
-        vcaControllerSound.setVolume(mainVolume / 100);
+        mouseSensitivity = pMouseSensitivity;
+        
+        ApplyGraphics(pResolution, pFullscreenfloat);
+        
+        ApplyVolume(pMainVolume, VolumeType.Main);
+        ApplyVolume(pMusicVolume, VolumeType.Music);
+        ApplyVolume(pSoundVolume, VolumeType.SFX);
         
         SaveSystem.SaveData(this);
     }

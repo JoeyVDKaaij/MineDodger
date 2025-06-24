@@ -29,6 +29,8 @@ public class MovementScript : MonoBehaviour
     private float playerHeight;
     [SerializeField, Tooltip("Set the layermask of the ground.")]
     private LayerMask whatIsGround;
+    [SerializeField, Tooltip("Set the collision check script.")]
+    private CollisionCheckScript collisionCheck;
     
     private bool _grounded;
     private float _horizontalInput;
@@ -48,13 +50,22 @@ public class MovementScript : MonoBehaviour
         
         if (cameraOrientation == null)
             cameraOrientation = transform.GetChild(0);
+
+        if (GameManager.instance != null)
+        {
+            GameManager.instance.gameplayType = GameplayTypes.Moving;
+        }
     }
     
     void Update()
     {
-        if (GameManager.instance != null && GameManager.instance.gameplayType == GameplayTypes.Moving)
+        if ((GameManager.instance != null && GameManager.instance.gameplayType == GameplayTypes.Moving) || GameManager.instance == null)
         {
-            _grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
+            if (collisionCheck != null)
+            {
+                _grounded = collisionCheck.CheckCollisionWithRayCast();
+            }
+            else _grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
 
             UserInput();
 
@@ -69,7 +80,7 @@ public class MovementScript : MonoBehaviour
     
     private void FixedUpdate()
     {
-        if (GameManager.instance != null && GameManager.instance.gameplayType == GameplayTypes.Moving)
+        if ((GameManager.instance != null && GameManager.instance.gameplayType == GameplayTypes.Moving) || GameManager.instance == null)
         {
             MovePlayer();
         }

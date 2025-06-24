@@ -9,7 +9,7 @@ public class PauseMenuEnablerScript : MonoBehaviour
 
     private void Update()
     {
-        if (pauseMenu != null && Input.GetKeyDown(KeyCode.Escape) && !pauseMenu.activeSelf)
+        if (pauseMenu != null && Input.GetKeyDown(KeyCode.Escape) && !pauseMenu.activeSelf && (GameManager.instance != null && GameManager.instance.gameplayType == GameplayTypes.Moving || GameManager.instance == null))
         {
             if (GameManager.instance != null)
             {

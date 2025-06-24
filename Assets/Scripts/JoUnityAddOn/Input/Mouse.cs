@@ -38,5 +38,14 @@ namespace JoUnityAddOn.Input
         
             Cursor.visible = true;
         }
+
+        /// <summary>
+        /// Checks if the cursor is locked and invisible.
+        /// </summary>
+        /// <returns>Returns true if cursor is Locked and invisible</returns>
+        public static bool MouseLocked()
+        {
+            return Cursor.lockState == CursorLockMode.Locked && !Cursor.visible;
+        }
     }
 }

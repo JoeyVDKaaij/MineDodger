@@ -491,7 +491,7 @@ MonoBehaviour:
   EnableErrorCallback: 0
   SharedLibraryUpdateStage: 0
   SharedLibraryTimeSinceStart: 0
-  CurrentVersion: 131623
+  CurrentVersion: 131624
   HideSetupWizard: 1
   LastEventReferenceScanVersion: 131623
   Platforms:
@@ -857,7 +857,8 @@ MonoBehaviour:
       Value: 0
       HasValue: 0
     Plugins:
-      Value: []
+      Value:
+      - phonon_fmod
       HasValue: 1
     StaticPlugins:
       Value: []

@@ -23,28 +23,26 @@ public class CameraControllerScript : MonoBehaviour
         }
     }
 
-    void Update()
+    void LateUpdate()
     {
-        if (GameManager.instance != null)
+        if ((GameManager.instance != null && GameManager.instance.gameplayType != GameplayTypes.Paused) || GameManager.instance == null)
         {
-            if (GameManager.instance.gameplayType == GameplayTypes.Moving)
-            {
-                Mouse.LockMouse();
-                float mouseX = Input.GetAxisRaw("Mouse X") * mouseSensitivityX * Time.deltaTime * 3;
-                float mouseY = Input.GetAxisRaw("Mouse Y") * mouseSensitivityY * Time.deltaTime * 3;
+            if (!Mouse.MouseLocked()) Mouse.LockMouse();
+            
+            float mouseX = Input.GetAxisRaw("Mouse X") * mouseSensitivityX * Time.deltaTime * 3;
+            float mouseY = Input.GetAxisRaw("Mouse Y") * mouseSensitivityY * Time.deltaTime * 3;
 
-                _rotationY += mouseX;
+            _rotationY += mouseX;
 
-                _rotationX -= mouseY;
-                _rotationX = Mathf.Clamp(_rotationX, -90f, 90f);
+            _rotationX -= mouseY;
+            _rotationX = Mathf.Clamp(_rotationX, -90f, 90f);
 
-                transform.rotation = Quaternion.Euler(_rotationX, _rotationY, 0);
-                _orientation.rotation = Quaternion.Euler(0f, _rotationY, 0f);
-            }
-            else
-            {
-                Mouse.UnlockMouse();
-            }
+            transform.rotation = Quaternion.Euler(_rotationX, _rotationY, 0);
+            _orientation.rotation = Quaternion.Euler(0f, _rotationY, 0f);
+        }
+        else if (((GameManager.instance != null && GameManager.instance.gameplayType == GameplayTypes.Paused) || GameManager.instance == null) && Mouse.MouseLocked())
+        {
+            Mouse.UnlockMouse();
         }
     }
 }

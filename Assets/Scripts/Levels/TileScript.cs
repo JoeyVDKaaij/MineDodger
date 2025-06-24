@@ -110,6 +110,8 @@ public class TileScript : MonoBehaviour
 
     private void ActivateBomb()
     {
+        if (GameManager.instance != null) GameManager.instance.gameplayType = GameplayTypes.Death;
+        
         if (DeathAnimationScript.instance != null)
             DeathAnimationScript.instance.PlayDeathAnimation(transform.parent.position + deathAnimationOffSet);
         else

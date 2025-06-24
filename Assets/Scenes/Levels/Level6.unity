@@ -5025,7 +5025,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!65 &656901757
 BoxCollider:
@@ -5791,6 +5791,10 @@ PrefabInstance:
     - target: {fileID: 2851929102378173705, guid: f1f2a888bae117947a56d83e86f7de20, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5761378637452378830, guid: f1f2a888bae117947a56d83e86f7de20, type: 3}
+      propertyPath: containsBomb
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9096,6 +9100,10 @@ PrefabInstance:
     - target: {fileID: 2851929102378173705, guid: f1f2a888bae117947a56d83e86f7de20, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5761378637452378830, guid: f1f2a888bae117947a56d83e86f7de20, type: 3}
+      propertyPath: containsBomb
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -14760,6 +14768,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5761378637452378830, guid: f1f2a888bae117947a56d83e86f7de20, type: 3}
+      propertyPath: containsBomb
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -17567,6 +17579,10 @@ PrefabInstance:
     - target: {fileID: 4552232573795511362, guid: 7af1d49419302284aa68f16e22846335, type: 3}
       propertyPath: m_Name
       value: FloorObject_BOMB
+      objectReference: {fileID: 0}
+    - target: {fileID: 6102602090266057037, guid: 7af1d49419302284aa68f16e22846335, type: 3}
+      propertyPath: containsBomb
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

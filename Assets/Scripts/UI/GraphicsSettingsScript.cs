@@ -36,16 +36,15 @@ public class GraphicsSettingsScript : MonoBehaviour
         
         resDropdown.AddOptions(resolutionStringList);
 
-        if (OptionsManager.instance != null)
-        {
-            resDropdown.value = selectedResolutionList.IndexOf(OptionsManager.instance.resolution);
-        }
+        resDropdown.value = selectedResolutionList.IndexOf(Screen.currentResolution);
     }
 
     public void ChangeResolution()
     {
         if (OptionsManager.instance != null)
         {
+            selectedResolution = resDropdown.value;
+            Debug.Log(selectedResolution.ToString());
             OptionsManager.instance.ApplyGraphics(selectedResolutionList[selectedResolution], fullScreenToggle.isOn);
         }
         else

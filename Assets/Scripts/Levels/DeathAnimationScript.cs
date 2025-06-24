@@ -33,18 +33,10 @@ public class DeathAnimationScript : MonoBehaviour
         if (_deadAnimationPlaying && !_animator.GetCurrentAnimatorStateInfo(0).IsName("Death Animation"))
         {
             SceneManager.ReloadScene();
-            if (GameManager.instance != null)
-                GameManager.instance.gameplayType = GameplayTypes.Moving;
         }
         else if (_animator.GetCurrentAnimatorStateInfo(0).IsName("Death Animation"))
         {
             _deadAnimationPlaying = true;
-        }
-        
-        if (GameManager.instance != null)
-        {
-            if (startDeathGameplayType)
-                GameManager.instance.gameplayType = GameplayTypes.Death;
         }
     }
 

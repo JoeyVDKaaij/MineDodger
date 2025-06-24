@@ -5,10 +5,23 @@ public class CollisionCheckScript : MonoBehaviour
 {
     [SerializeField, Tooltip("Set the GameObject that has the death animation.")]
     private GameObject deathAnimation;
+    [SerializeField, Tooltip("Set the GameObject that has the death animation.")]
+    private LayerMask whatIsGround;
+    [SerializeField, Tooltip("Set the GameObject that has the death animation.")]
+    private float playerHeight;
 
-    private void Start()
+    public bool CheckCollisionWithRayCast()
     {
+        bool _grounded = Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit, playerHeight * 0.5f + 0.2f, whatIsGround);
+
+        if (_grounded)
+        {
+            TileScript tileScript = hit.collider.gameObject.GetComponent<TileScript>();
+            if (tileScript != null)
+                tileScript.ShowCounter();
+        }
         
+        return _grounded;
     }
 
     private void OnCollisionEnter(Collision other)
